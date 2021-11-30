@@ -25,7 +25,7 @@ async function createConnection(){                          //creating mongodb c
 export const client = await createConnection();
 
 app.get('/',(req,res) => {
-    res.send("Hello  🌎 !!!")
+    res.send("Hello  🌎 ***")
 })
 
 app.use("/movies",moviesRouter);
