@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { moviesRouter } from './routes/movies.js';
 import cors from "cors";
 
+
 dotenv.config();
 // console.log(process.env);
 const app = express()
