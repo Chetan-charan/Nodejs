@@ -14,7 +14,7 @@ import { client } from "./index.js";
 }
 
 async function getMovies(filter) {
-    return await client.db("b28wd").collection("movies").find(filter).toArray();
+    return await client.db("b28wd").collection("movies").find(filter).toArray();   //convert cursor to array
 }
 
 export { getMoviebyId, createMovies, updateMoviebyId, deleteMoviebyId, getMovies };
