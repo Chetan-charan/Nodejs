@@ -5,7 +5,7 @@ import { client } from "./index.js";
     return await client.db("b28wd").collection("movies").insertMany(data);
 }
  async function deleteMoviebyId(id) {
-    return await client.db("b28wd").collection("movies").deleteOne({ id: ObjectId(id) });    //converts the id into objectId
+    return await client.db("b28wd").collection("movies").deleteOne({ _id: ObjectId(id) });    //converts the  string id into objectId
 }
  async function updateMoviebyId(id, data) {
     return await client.db("b28wd").collection("movies").updateOne({ _id: ObjectId(id)  }, { $set: data });
