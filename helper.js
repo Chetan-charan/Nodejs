@@ -18,4 +18,16 @@ async function getMovies(filter) {
     return await client.db("b28wd").collection("movies").find(filter).toArray();   //convert cursor to array
 }
 
-export { getMoviebyId, createMovies, updateMoviebyId, deleteMoviebyId, getMovies };
+async function createUser(data) {
+    return await client.db("b28wd").collection("users").insertOne(data);
+}
+
+async function getUserbyName(username) {
+    return await client.db("b28wd").collection("users").findOne({ username: username });
+}
+
+async function getUsers() {
+    return await client.db("b28wd").collection("users").find().toArray();   //convert cursor to array
+}
+
+export { getUsers,getUserbyName,createUser,getMoviebyId, createMovies, updateMoviebyId, deleteMoviebyId, getMovies };

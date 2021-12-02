@@ -4,19 +4,19 @@ import dotenv from 'dotenv';
 import { moviesRouter } from './routes/movies.js';
 import cors from "cors";
 
+import { usersRouter } from "./users.js";
 
 dotenv.config();
 // console.log(process.env);
 const app = express()
 
-app.use(cors());
+app.use(cors());              //allowing any path to access the routes of the application
 
 const PORT = process.env.PORT;   
 
 app.use(express.json())    //every request in the app body will be parsed as json
 
 const MONGO_URL = process.env.MONGO_URL;   //only line to be changed to make the database online(atlas)
-
 
 
 async function createConnection(){                          //creating mongodb connection
@@ -28,11 +28,18 @@ async function createConnection(){                          //creating mongodb c
 
 export const client = await createConnection();
 
+
+
+
+
 app.get('/',(req,res) => {
     res.send("Hello  🌎 ***")
 })
 
 app.use("/movies",moviesRouter);
+
+app.use("/users",usersRouter);
+
 
 
 
